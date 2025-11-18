@@ -1,0 +1,17 @@
+/* General setup */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; 
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
