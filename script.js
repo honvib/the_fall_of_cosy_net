@@ -17,7 +17,7 @@ ably.connection.once("connected", async () => {
 
     function onUserAction(moveData) {
         channel.publish("move", moveData);
-        console.log("button pressed")
+        console.log(clientId)
     };
 
     const demoButton = document.getElementById('demoButton');
@@ -25,7 +25,6 @@ ably.connection.once("connected", async () => {
     demoButton.addEventListener('click', () => {
         onUserAction({ action: 'button-pressed' });
     });
-
 
 });
 
