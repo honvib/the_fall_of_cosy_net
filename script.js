@@ -7,22 +7,26 @@ const ably = new Ably.Realtime.Promise({
 });
 
 ably.connection.once("connected", async () => {
-  const channel = ably.channels.get("the-fall-of-cozy-web");
+    const channel = ably.channels.get("the-fall-of-cozy-web");
 
-  channel.subscribe("move", (msg) => {
-    console.log("Received move:", msg.data);
-    // update UI
-  });
+    // Ably code
 
-  function onUserAction(moveData) {
-    channel.publish("move", moveData);
-  }
+    channel.subscribe("move", (msg) => {
+        console.log("Received move:", msg.data);
+    });
+
+    function onUserAction(moveData) {
+        channel.publish("move", moveData);
+        console.log("button pressed")
+    };
+
+    const demoButton = document.getElementById('demoButton');
+
+    demoButton.addEventListener('click', () => {
+        onUserAction({ action: 'button-pressed' });
+    });
+
+
 });
 
-// Ably application
 
-const demoButton = document.getElementById('myButton');
-
-demoButton.addEventListener('click', () => {
-    onUserAction({ action: 'button-pressed' });
-});
