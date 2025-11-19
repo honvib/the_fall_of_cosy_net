@@ -19,15 +19,15 @@ ably.connection.on('failed', (err) => {
 ably.connection.once("connected", async () => {
   const channel = ably.channels.get("main-channel");
   const myId = ably.connection.id;
-  console.log("Connected as", role, "with connectionId:", myId);
+  console.log("Connected as:", role, "with Id:", myId);
 
-  // Read server
+  // Read from server
   channel.subscribe("move", (msg) => {
       console.log(msg.connectionId, "as", role, "sent action:", msg.action);
-      console.log("Raw message:", msg);
+      // console.log("Raw message:", msg);
   });
 
-  // User action
+  // Write on server
   function onUserAction(msg) {
       channel.publish("move", msg);
       console.log(msg.connectionId, "as", role, "sent action:", msg.action);
