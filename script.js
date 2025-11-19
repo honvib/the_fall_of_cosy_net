@@ -16,30 +16,29 @@ ably.connection.on('failed', (err) => {
 // Ably connection
 
 ably.connection.once("connected", async () => {
-    const channel = ably.channels.get("main-channel");
+  const channel = ably.channels.get("main-channel");
+  const myId = ably.connection.Id;
+  console.log("Your connectionId is:", myId);
 
-    console.log("Your connectionId is:", ably.connection.id);
+  // Read server
+  channel.subscribe("move", (msg) => {
+      console.log("Received from:", msg.connectionId, "action", msg.action);
+      console.log("Raw message:", msg);
+  });
 
-    // Read server
-    channel.subscribe("move", (msg) => {
-        console.log("Received move from", msg.data.connectionId, ":", msg.data);
-        console.log("Raw message:", msg);
-    });
+  // User action
+  function onUserAction(moveData) {
+      channel.publish("move", moveData);
+      console.log("button pressed, sent move:", moveData);
+  };
 
+  // Elements
 
-    // User action
-    function onUserAction(moveData) {
-        channel.publish("move", moveData);
-        console.log("button pressed, sent move:", moveData);
-    };
+  const demoButton = document.getElementById('demoButton');
 
-    // Elements
-
-    const demoButton = document.getElementById('demoButton');
-
-    demoButton.addEventListener('click', () => {
-        onUserAction({ action: 'button-pressed' });
-    });
+  demoButton.addEventListener('click', () => {
+    onUserAction({ connectionId: myId, action: 'start' });
+  });
 
 });
 
