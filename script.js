@@ -16,7 +16,7 @@ ably.connection.on('failed', (err) => {
 
 // Ably connection
 
-ably.connection.once("connected", async (statChange) => {
+ably.connection.once("connected", async (stateChange) => {
   const channel = ably.channels.get("main-channel");
   const myId = stateChange.current.id;
   console.log("Your connectionId is:", myId);
