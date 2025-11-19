@@ -41,7 +41,7 @@ ably.connection.once("connected", async (statChange) => {
   const startButton = document.getElementById('startButton');
 
   startButton.addEventListener('click', () => {
-    onUserAction({ connectionId: myId, action: 'start'});
+    onUserAction({connectionId: myId, action: 'start'});
   });
 
 });
