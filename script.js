@@ -5,18 +5,26 @@ const ably = new Ably.Realtime.Promise({
   key: "MQAXag.a3lYNg:UTSjobvrLkoJ2KoSb7nj5ciU4l5FYyB5DB1VGZiMz08",
 });
 
-ably.connection.once("connected", async () => {
-    const channel = ably.channels.get("the-fall-of-cozy-web");
+ably.connection.on('connecting', () => {
+  console.log("Ably: connecting…");
+});
 
-    // Ably code
+ably.connection.on('failed', (err) => {
+  console.error("Ably: FAILED", err);
+});
+
+// Ably connection
+
+ably.connection.once("connected", async () => {
+    const channel = ably.channels.get("main-channel");
 
     channel.subscribe("move", (msg) => {
-        console.log("received move:", msg.data);
+        console.log("Received move from", msg.data.clientId, ":", msg.data);
     });
 
     function onUserAction(moveData) {
         channel.publish("move", moveData);
-        console.log(moveData, "published by", clientId)
+        console.log("button pressed, sent move:", moveData);
     };
 
     const demoButton = document.getElementById('demoButton');
