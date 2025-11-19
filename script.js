@@ -20,6 +20,7 @@ ably.connection.once("connected", async () => {
 
     channel.subscribe("move", (msg) => {
         console.log("Received move from", msg.data.clientId, ":", msg.data);
+        console.log("Raw message:", msg);
     });
 
     function onUserAction(moveData) {
