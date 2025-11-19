@@ -12,12 +12,12 @@ ably.connection.once("connected", async () => {
     // Ably code
 
     channel.subscribe("move", (msg) => {
-        console.log("Received move:", msg.data);
+        console.log("received move:", msg.data);
     });
 
     function onUserAction(moveData) {
         channel.publish("move", moveData);
-        console.log(clientId)
+        console.log(moveData, "published by", clientId)
     };
 
     const demoButton = document.getElementById('demoButton');
