@@ -1,15 +1,39 @@
+.sender-bg {
+    background-color: #4AB7BA;
+}
+
+.receiver-bg {
+    background-color: #8C49B7;
+}
+
 .chat-divider {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.chat-area {
+.messages-area {
+    background-color: inherit;
     flex: 1;
-    background: lightblue;
 }
 
-.typeBar-area {
+#typeBar-area {
     height: 100px;
-    background: lightgreen;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+#chatInput {
+    margin: 10px;
+    flex: 1;
+    max-height: 70px;
+}
+
+#sendButton {
+    margin: 10px;
+    background-color: #ffffff;
+    width: 100px;
+    max-height: 70px;
 }
