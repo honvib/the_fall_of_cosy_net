@@ -16,12 +16,13 @@
           <div class="messages-area"></div>
         <form  id="typeBar-area" class="sender-bg">
             <input id="chatInput" type="text">
-            <input id="sendButton" type="submit">
+            <input id="sendButton" onclick="submitForm(event)" type="submit">
         </form>
     </div>
 
 </div>
 <!-- Script -->
+<script> const role = "sender"; </script>
 <script src="sender-chat.js"></script> 
 </body>
 </html>

@@ -14,14 +14,15 @@
 
     <div class="chat-divider">
           <div class="messages-area"></div>
-        <form  id="typeBar-area" class="sender-bg">
+        <form  id="typeBar-area" class="receiver-bg">
             <input id="chatInput" type="text">
-            <input id="sendButton" onclick="submitForm()" type="submit">
+            <input id="sendButton" onclick="submitForm(event)" type="submit">
         </form>
     </div>
 
 </div>
 <!-- Script -->
+ <script> const role = "receiver"; </script>
 <script src="receiver-chat.js"></script> 
 </body>
 </html>
