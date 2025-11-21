@@ -64,6 +64,10 @@ ably.connection.once("connected", async () => {
   function countdown(seconds) {
     countdownText.textContent = seconds;
 
+    startButton.addEventListener('click', () => {
+    clearInterval(interval);
+    });
+
     const interval = setInterval(() => {
       seconds--;
       countdownText.textContent = seconds;
@@ -77,6 +81,7 @@ ably.connection.once("connected", async () => {
       if (checkReady() === true) {
         clearInterval(interval);
         console.log("Both players ready");
+        sessionStorage.setItem("sessionRole", role);
         window.location.href = "../intro/intro_01.html";
       }
 

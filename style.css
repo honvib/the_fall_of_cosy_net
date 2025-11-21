@@ -32,6 +32,10 @@ body {
   overflow: hidden;
 }
 
+button {
+  font-size: large;
+}
+
 /* Templates */
 
 .flex-column {

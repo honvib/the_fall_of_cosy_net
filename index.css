@@ -1,0 +1,13 @@
+
+.initButton {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+#senderButton {
+    background-color: #4AB7BA;
+}
+
+#receiverButton {
+    background-color: #8C49B7;
+}

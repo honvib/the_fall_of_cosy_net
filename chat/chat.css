@@ -1,0 +1,15 @@
+.chat-divider {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-area {
+    flex: 1;
+    background: lightblue;
+}
+
+.typeBar-area {
+    height: 100px;
+    background: lightgreen;
+}
