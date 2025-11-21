@@ -77,7 +77,7 @@ ably.connection.once("connected", async () => {
       if (checkReady() === true) {
         clearInterval(interval);
         console.log("Both players ready");
-        window.location.href = "../intro.html";
+        window.location.href = "../intro/intro_01.html";
       }
 
     }, 1000);
@@ -88,7 +88,5 @@ ably.connection.once("connected", async () => {
     startButtonText.textContent = "Waiting for other player to start...";
     countdown(30);
   });
-
-
 
 });
