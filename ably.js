@@ -86,7 +86,7 @@ ably.connection.once("connected", async () => {
   startButton.addEventListener('click', () => {
     onUserAction({connectionId: myId, role: role, action: "start"});
     startButtonText.textContent = "Waiting for other player to start...";
-    countdown(5);
+    countdown(30);
   });
 
 
